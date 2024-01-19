@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Grading Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-GL4ZFjnL6a0vBEh8nYefH3tC9sXfAtgxnmjs5ta2XGsnL9hkhLP0OkKbthXBHgyQzQ1R1JfAnbR9CKJSgE4Dkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="splash-screen">
+      <p>
+        CCIT 06 BSIT - 3D <br />
+        (APPLICATION DEVELOPMENT AND EMERGING TECHNOLOGIES)
+      </p>
+      <div class="dev">Dev-JPA</div>
+    </div>
+
+    <div class="calculator-container">
+      <h2>Student Grading Calculator</h2>
+
+      <div class="subject" id="subjectContainer">
+        <!-- English -->
+        <label for="english" class="editable" onclick="editSubject('english')">English</label>
+        <input type="text" id="english" placeholder="Enter grade" onkeydown="nextInput(event, 'math')" oninput="validateInput(event, 'english')"/>
+        <button onclick="deleteSubject(0)" class="delete-button">&#128465;</button>
+
+        <!-- Math -->
+        <label for="math" class="editable" onclick="editSubject('math')">(Edit):</label>
+        <input type="text" id="math" placeholder="Enter grade" onkeydown="nextInput(event, 'science')" oninput="validateInput(event, 'math')"/>
+        <button onclick="deleteSubject(1)" class="delete-button">&#128465;</button>
+
+        <!-- Science -->
+        <label for="science" class="editable" onclick="editSubject('science')">(Edit):</label>
+        <input type="text" id="science" placeholder="Enter grade" onkeydown="nextInput(event, 'filipino')" oninput="validateInput(event, 'science')"/>
+        <button onclick="deleteSubject(2)" class="delete-button">&#128465;</button>
+
+        <!-- Filipino -->
+        <label for="filipino" class="editable" onclick="editSubject('filipino')">(Edit):</label>
+        <input type="text" id="filipino" placeholder="Enter grade" onkeydown="nextInput(event, 'calculateButton')" oninput="validateInput(event, 'filipino')"/>
+        <button onclick="deleteSubject(3)" class="delete-button">&#128465;</button>
+      </div>
+      
+      <br />
+
+      <button class="add-sub" onclick="addNewSubject()">Add New Subject</button>
+      <button class="average" id="calculateButton" onclick="calculateAverage()">Calculate Average</button>
+      <button class="btn1" id="resetButton" onclick="resetForm()">Reset</button>
+      <h3>Average Grade: <span id="averageGrade">0</span></h3>
+      <p id="errorMessage" style="color: red; font-weight: bold"></p>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
